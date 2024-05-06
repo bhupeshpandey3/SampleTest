@@ -51,7 +51,7 @@ pipeline {
                     {
                     sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 461060215591.dkr.ecr.us-east-1.amazonaws.com"
                     sh 'docker rm -f sample-test'
-                    sh 'docker run -itd --name sample-test 461060215591.dkr.ecr.us-east-1.amazonaws.com/sample-test:${TAG}'
+                    sh 'docker run -it --name sample-test 461060215591.dkr.ecr.us-east-1.amazonaws.com/sample-test:${TAG}'
                     }
                 }
             }
