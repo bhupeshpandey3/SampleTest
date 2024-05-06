@@ -34,7 +34,7 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 script {
-                    docker.withRegistry('461060215591.dkr.ecr.us-east-1.amazonaws.com/sample-test', 'ecr:us-east-1:aws-cred') {
+                    docker.withRegistry('https://461060215591.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-cred') {
                         app.push(TAG)
                     }
                 }
