@@ -21,7 +21,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script {
-                    app = docker.build("sample-test")
+                    app = docker.build("testreporegistry/sampletest")
                 }
             }
         }
