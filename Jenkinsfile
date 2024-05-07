@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'doc-reg') {
-                        app.push("${DOCKER_IMAGE_NAME}:${TAG}")
+                        app.push(TAG)
                     }
                 }
             }
