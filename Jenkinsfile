@@ -45,7 +45,7 @@ pipeline {
             steps {
                 echo 'Deploying application...'
                 script {
-                    sh 'docker rm -f sampletest'
+                    sh 'docker rm -f sample-test'
                     sh 'docker run -itd --name sample-test testreporegistry/sampletest:${TAG}'
                     }
             }
