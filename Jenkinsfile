@@ -31,15 +31,16 @@ pipeline {
             }
         }
 
-        stage('Push to ECR') {
+        stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://461060215591.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-cred') {
-                        app.push(TAG)
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
+                        app.push("${DOCKER_IMAGE_NAME}:${TAG}")
                     }
                 }
             }
         }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
